@@ -2,7 +2,8 @@
 FROM cloudreve/cloudreve:latest
 
 # 创建目录和文件
-RUN mkdir -vp {uploads,avatar} 
+RUN mkdir -vp {uploads,avatar}
+
 
 
 
