@@ -2,13 +2,12 @@
 FROM cloudreve/cloudreve:latest
 
 # 创建目录和文件
-RUN mkdir -vp /cloudreve/uploads  \
-mkdir -vp /cloudreve/avatar
+mkdir -vp {uploads,avatar} 
 
 
 
 # 暴露端口
 EXPOSE 5212
 # 启动 Cloudreve
-CMD ["/cloudreve/cloudreve", "-c", "/cloudreve/conf.ini"]
+CMD ["./cloudreve", "-c", "conf.ini"]
 
