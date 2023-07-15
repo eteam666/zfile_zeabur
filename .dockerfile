@@ -1,20 +1,18 @@
 # 使用基础镜像
-FROM ubuntu:latest
+FROM cloudreve/cloudreve:latest
 
-# 将 Cloudreve 主程序复制到容器中
-COPY cloudreve_3.8.0_linux_amd64.tar.gz /app/
+# 创建目录和文件
+RUN mkdir -vp /cloudreve/uploads /cloudreve/avatar \
+    && touch /cloudreve/conf.ini \
+    && touch /cloudreve/cloudreve.db
 
-# 在容器中解压主程序
-RUN tar -zxvf /app/cloudreve_3.8.0_linux_amd64.tar.gz -C /app/
-
-# 设置工作目录
-WORKDIR /app
-
-# 赋予执行权限
-RUN chmod +x /app/cloudreve
+# 复制配置文件和数据库文件到容器中
+COPY conf.ini /cloudreve/conf.ini
+COPY cloudreve.db /cloudreve/cloudreve.db
 
 # 暴露端口
-EXPOSE 80
+EXPOSE 5212
 
 # 启动 Cloudreve
-CMD ["/app/cloudreve"]
+CMD ["/cloudreve/cloudreve", "-config", "/cloudreve/conf.ini"]
+
