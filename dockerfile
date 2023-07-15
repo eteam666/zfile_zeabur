@@ -1,6 +1,6 @@
 FROM lsiobase/alpine:3.11
 
-ARG ZFILE_VERSION=curl -o name.latest https://api.github.com/repos/zfile-dev/zfile/releases/latest
+ARG ZFILE_VERSION=4.1.5
 
 ENV PUID=1000
 ENV PGID=1000
