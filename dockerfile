@@ -1,6 +1,5 @@
 # 使用基础镜像
-FROM cloudreve/cloudreve:latest
-
+FROM ubuntu:latest
 # 创建目录和文件
 RUN mkdir -vp {uploads,avatar}
 
