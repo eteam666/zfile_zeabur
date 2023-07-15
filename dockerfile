@@ -9,7 +9,7 @@ RUN mkdir -vp /cloudreve/uploads /cloudreve/avatar \
 
 # 暴露端口
 EXPOSE 5212
-
+CMD["ls /cloudreve"]
 # 启动 Cloudreve
-CMD ["/cloudreve/cloudreve", "-config", "/cloudreve/conf.ini"]
+CMD ["/cloudreve/cloudreve", "-c", "/cloudreve/conf.ini"]
 
